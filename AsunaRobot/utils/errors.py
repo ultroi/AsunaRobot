@@ -4,7 +4,7 @@
 import sys
 import traceback
 from functools import wraps
-from AsunaRobot import pgram, SUPPORT_CHAT
+from AsunaRobot import SUPPORT_CHAT
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 from AsunaRobot import LOGGER, pbot as app
