@@ -118,7 +118,7 @@ HELP_STRINGS = """
 """
 
 
-ASUNA_IMG = "https://telegra.ph/file/da8c9c0c573d0cd2a5913.jpg""
+ASUNA_IMG = "https://telegra.ph/file/da8c9c0c573d0cd2a5913.jpg"
 
 DONATE_STRING = """ Heya, glad to hear you want to donate!
  You can support the project via [Paypal](#) or by contacting @The_Ghost_Hunter\
