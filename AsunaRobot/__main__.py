@@ -115,7 +115,7 @@ HELP_STRINGS = """
  ➛ /settings:
    ❂ in PM: will send you your settings for all supported modules.
    ❂ in a group: will redirect you to pm, with all that chat's settings.
-""""""
+"""
 
 
 ASUNA_IMG = "https://telegra.ph/file/da8c9c0c573d0cd2a5913.jpg""
