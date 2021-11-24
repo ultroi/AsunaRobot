@@ -53,7 +53,11 @@ def capture_err(func):
                 ),
             )
             for x in error_feedback:
-                await app.send_message(LOGGER, x)
-            raise err
-
+                await pbot.send_message(
+                    SUPPORT_CHAT,
+                    x 
+                )
+            raise err 
     return capture
+
+
