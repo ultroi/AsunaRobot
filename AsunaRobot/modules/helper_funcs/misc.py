@@ -1,7 +1,7 @@
 from math import ceil
 from typing import Dict, List
 
-from EzilaXBotV import NO_LOAD
+from AsunaRobot import NO_LOAD
 from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 from telegram.error import TelegramError
 
@@ -67,11 +67,11 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     if len(pairs) > 8:
         pairs = pairs[modulo_page * 8:8 * (modulo_page + 1)] + [
             (EqInlineKeyboardButton("⬆️", callback_data="{}_prev({})".format(prefix, modulo_page)),
-                EqInlineKeyboardButton("Back", callback_data="gabi_back"),
+                EqInlineKeyboardButton("Back", callback_data="asuna_back"),
              EqInlineKeyboardButton("⬇️", callback_data="{}_next({})".format(prefix, modulo_page)))]
 
     else:
-        pairs += [[EqInlineKeyboardButton("Back", callback_data="gabi_back")]]
+        pairs += [[EqInlineKeyboardButton("Back", callback_data="asuna_back")]]
 
     return pairs
 
