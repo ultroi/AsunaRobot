@@ -72,7 +72,7 @@ async def _(event):
 
     lol = await event.reply("```Processing```")
 
-    async with ubot.conversation(chat) as conv:
+    async with pbot.conversation(chat) as conv:
 
         try:
 
