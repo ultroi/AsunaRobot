@@ -14,18 +14,7 @@ from pyrogram import filters
 from AsunaRobot.modules.disable import DisableAbleCommandHandler
 
 
-__help__ = """ 
-Use this module to translate stuff!
-*Commands:*
-• `/tl` (or `/tr`): as a reply to a message, translates it to English.
-• `/tl <lang>`: translates to <lang>
-eg: `/tl ja`: translates to Japanese.
-• `/tl <source>//<dest>`: translates from <source> to <lang>.
-eg: `/tl ja//en`: translates from Japanese to English.
-• `/langs`: get a list of supported languages for translation.
-"""
-
-__mod_name__ = "Translator"
+ 
 
 
 trans = Translator()
