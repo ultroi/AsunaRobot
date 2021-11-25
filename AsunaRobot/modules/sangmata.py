@@ -3,7 +3,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
 from AsunaRobot.events import register as kurkur
-from AsunaRobot import telethn, pbot
+from AsunaRobot import telethn, ubot
 
 
 async def is_register_admin(chat, user):
@@ -72,7 +72,7 @@ async def _(event):
 
     lol = await event.reply("```Processing```")
 
-    async with pbot.conversation(chat) as conv:
+    async with ubot.conversation(chat) as conv:
 
         try:
 
