@@ -224,7 +224,7 @@ aiohttpsession = ClientSession()
 # ARQ Client
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession) 
-ubot = TelegramClient(StringSession(STRING_SESSION), APP_ID, APP_HASH) 
+ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH) 
 print("[AsunaRobot]: Connecting To Yūki • Pikachu Userbot (t.me/Weeb_lover)")
 
 
