@@ -206,6 +206,11 @@
       "BAN_STICKER": {
          "description": "ID of the sticker you want to use when banning people.",
          "required": false,
+         "value": "" 
+      },
+      "STRING_SESSION": {
+         "description": "Make p string session (only telthon)."
+         "required": "True", 
          "value": ""
       },
       "WALL_API": {
