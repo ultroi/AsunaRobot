@@ -768,8 +768,8 @@ __handlers__ = [
     DVA_HANDLER,
 ]
 
-"""
-__help__ = 
+
+__help__ = """
 *NSFW:*
 ❂ /addnsfw : Enable NSFW mode
 ❂ /rmnsfw : Disable NSFW mode
