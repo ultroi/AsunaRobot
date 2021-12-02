@@ -43,11 +43,11 @@ async def lego(event):
         )
         fname2 = "LogoByAsuna.png"
         img.save(fname2, "png")
-        await tbot.send_file(event.chat_id, fname2, caption="Made By AsunaRobot")
+        await tbot.send_file(event.chat_id, fname2, caption="Made By PikachuRobo_bot")
         if os.path.exists(fname2):
             os.remove(fname2)
     except Exception as e:
-        await event.reply(f"Error Report @AsunaRobotSupport, {e}")
+        await event.reply(f"Error Report @PikachuHelpSupport, {e}")
 
 
 @register(pattern="^/wlogo ?(.*)")
@@ -88,11 +88,11 @@ async def lego(event):
         )
         fname2 = "LogoByAsuna.png"
         img.save(fname2, "png")
-        await tbot.send_file(event.chat_id, fname2, caption="Made By AsunaRobot")
+        await tbot.send_file(event.chat_id, fname2, caption="Made By PikachuRobo_bot")
         if os.path.exists(fname2):
             os.remove(fname2)
     except Exception as e:
-        await event.reply(f"Error Report @AsunaRobotSupport, {e}")
+        await event.reply(f"Error Report @PikachuHelpSupport, {e}")
 
 
 file_help = os.path.basename(__file__)
