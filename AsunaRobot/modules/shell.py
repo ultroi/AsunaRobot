@@ -7,8 +7,8 @@ from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
 
 
+
 @dev_plus
-@run_async
 def shell(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(" ", 1)
@@ -43,7 +43,7 @@ def shell(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-SHELL_HANDLER = CommandHandler(["sh"], shell)
+SHELL_HANDLER = CommandHandler(["sh"], shell, run_async=True)
 dispatcher.add_handler(SHELL_HANDLER)
 __mod_name__ = "Shell"
 __command_list__ = ["sh"]
