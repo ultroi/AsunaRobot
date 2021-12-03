@@ -29,7 +29,7 @@ from AsunaRobot.modules.helper_funcs.alternate import send_message
 @can_promote
 @user_admin
 @loggable
-def promote(update: Update, context: CallbackContext) -> str:
+def ban_promote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
     args = context.args
 
