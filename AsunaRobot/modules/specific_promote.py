@@ -105,7 +105,7 @@ def ban_promote(update: Update, context: CallbackContext) -> str:
 
     return log_message 
     
-BAN_PROMOTE_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True)
+BAN_PROMOTE_HANDLER = DisableAbleCommandHandler("ban_promote", "bpromote", ban_promote, run_async=True)
 dispatcher.add_handler(BAN_PROMOTE_HANDLER)
 __handlers__ = [
     BAN_PROMOTE_HANDLER,
