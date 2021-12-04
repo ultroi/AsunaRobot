@@ -689,7 +689,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@{PikachuAlive}",
+                f"@{SUPPORT_CHAT}",
                 "[Yes I'm alive now!](https://telegra.ph/file/fc7f0710a45790370f7d9.jpg)",
                 parse_mode=ParseMode.MARKDOWN,
             )
