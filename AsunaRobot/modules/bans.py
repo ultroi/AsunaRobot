@@ -420,7 +420,7 @@ dispatcher.add_handler(UNBAN_HANDLER)
 dispatcher.add_handler(ROAR_HANDLER)
 dispatcher.add_handler(PUNCHME_HANDLER)
 
-__mod_name__ = "Bans"
+__mod_name__ = "Ban/Mute"
 __handlers__ = [
     BAN_HANDLER,
     TEMPBAN_HANDLER,
