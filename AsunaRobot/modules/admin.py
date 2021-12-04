@@ -1057,7 +1057,11 @@ __help__ = """
 • /managepromote - to promote a user only for change grp info right
 • /demote - demotes the user replied to
 
-
+*Rules*
+• /rules *:* get the rules for this chat. 
+*Admins only:-*
+• /setrules <your rules here>*:* set the rules for this chat. 
+clear the rules for this chat.
 
 *Log Channel*:
 • `/logchannel`*:* get log channel info
