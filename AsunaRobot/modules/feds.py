@@ -2417,6 +2417,13 @@ Feds are now divided into 3 sections for your ease.
 • `/fedadminhelp`*:* Provides help for fed administration commands
 • `/feduserhelp`*:* Provides help for commands anyone can use
 
+*OFFICIAL FEDRATION* 
+*FED ID* - 13e850c1-32fc-44c9-8707-540c3b809f37
+
+• How to Join ? 
+Group creator can copy msg below 👇
+==> `/joinfed 13e850c1-32fc-44c9-8707-540c3b809f37`<==
+Paste on his/her Group on the presence of pikachu bot.
 """
 
 NEW_FED_HANDLER = CommandHandler("newfed", new_fed, run_async=True)
