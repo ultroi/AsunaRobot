@@ -488,6 +488,416 @@ def ban_promote(update: Update, context: CallbackContext) -> str:
 
     return log_message
 
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def vc_promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            # can_change_info=bot_member.can_change_info,
+            # can_post_messages=bot_member.can_post_messages,
+            # can_edit_messages=bot_member.can_edit_messages,
+            # can_delete_messages=bot_member.can_delete_messages,
+            # can_invite_users=bot_member.can_invite_users,
+            # can_promote_members=bot_member.can_promote_members,
+            # can_restrict_members=bot_member.can_restrict_members,
+            # can_pin_messages=bot_member.can_pin_messages,
+            can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully promoted <b>{user_member.user.first_name or user_id} for VC Right</b>!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#PROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def manage_promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            can_change_info=bot_member.can_change_info,
+            # can_post_messages=bot_member.can_post_messages,
+            # can_edit_messages=bot_member.can_edit_messages,
+            # can_delete_messages=bot_member.can_delete_messages,
+            # can_invite_users=bot_member.can_invite_users,
+            # can_promote_members=bot_member.can_promote_members,
+            # can_restrict_members=bot_member.can_restrict_members,
+            # can_pin_messages=bot_member.can_pin_messages,
+            # can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully promoted <b>{user_member.user.first_name or user_id} for Chat info Right</b>!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#PROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def admin_promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            # can_change_info=bot_member.can_change_info,
+            # can_post_messages=bot_member.can_post_messages,
+            # can_edit_messages=bot_member.can_edit_messages,
+            # can_delete_messages=bot_member.can_delete_messages,
+            # can_invite_users=bot_member.can_invite_users,
+            can_promote_members=bot_member.can_promote_members,
+            # can_restrict_members=bot_member.can_restrict_members,
+            # can_pin_messages=bot_member.can_pin_messages,
+            # can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully promoted <b>{user_member.user.first_name or user_id} for Promote Right</b>!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#PROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def common_promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            # can_change_info=bot_member.can_change_info,
+            can_post_messages=bot_member.can_post_messages,
+            can_edit_messages=bot_member.can_edit_messages,
+            can_delete_messages=bot_member.can_delete_messages,
+            # can_invite_users=bot_member.can_invite_users,
+            # can_promote_members=bot_member.can_promote_members,
+            # can_restrict_members=bot_member.can_restrict_members,
+            can_pin_messages=bot_member.can_pin_messages,
+            # can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully promoted <b>{user_member.user.first_name or user_id} for Common Right</b>!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#PROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def invite_promote(update: Update, context: CallbackContext) -> str:
+    bot = context.bot
+    args = context.args
+
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+
+    promoter = chat.get_member(user.id)
+
+    if (
+        not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
+    ):
+        message.reply_text("You don't have the necessary rights to do that!")
+        return
+
+    user_id = extract_user(message, args)
+
+    if not user_id:
+        message.reply_text(
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
+        )
+        return
+
+    try:
+        user_member = chat.get_member(user_id)
+    except:
+        return
+
+    if user_member.status == "administrator" or user_member.status == "creator":
+        message.reply_text("How am I meant to promote someone that's already an admin?")
+        return
+
+    if user_id == bot.id:
+        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        return
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    try:
+        bot.promoteChatMember(
+            chat.id,
+            user_id,
+            # can_change_info=bot_member.can_change_info,
+            # can_post_messages=bot_member.can_post_messages,
+            # can_edit_messages=bot_member.can_edit_messages,
+            # can_delete_messages=bot_member.can_delete_messages,
+            can_invite_users=bot_member.can_invite_users,
+            # can_promote_members=bot_member.can_promote_members,
+            # can_restrict_members=bot_member.can_restrict_members,
+            # can_pin_messages=bot_member.can_pin_messages,
+            # can_manage_voice_chats=bot_member.can_manage_voice_chats,
+        )
+    except BadRequest as err:
+        if err.message == "User_not_mutual_contact":
+            message.reply_text("I can't promote someone who isn't in the group.")
+        else:
+            message.reply_text("An error occured while promoting.")
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Sucessfully promoted <b>{user_member.user.first_name or user_id} for Invite User Right</b>!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    log_message = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#PROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+    )
+
+    return log_message
+
 @bot_admin
 @user_admin
 @connection_status
@@ -631,14 +1041,24 @@ __help__ = """
  • `/pin`*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  • `/unpin`*:* unpins the currently pinned message
  • `/invitelink`*:* gets invitelink
- • `/promote`*:* promotes the user replied to
- • `/fullpromote`*:* promotes the user replied to with full rights
- • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
  • `/zombies` :- searches deleted accounts
  • `/zombies clean` :- removes deleted accounts from the group.
  
+*Promote and Demote*
+• /promote - to promote user for common rights
+• /fullpromote - to promote user for all rights 
+• /bpromote [ /banpromote ] - to promote a user only for ban right
+• /cpromote - to promote user for some basic right (like - to msg pin, unpin, del, and edit) 
+• /vcpromote - to promote a user only for voice chat right 
+• /adminpromote - to promote a user only for add admin right
+• /invitepromote to promote a user only for `invite other user` right
+• /managepromote - to promote a user only for change grp info right
+• /demote - demotes the user replied to
+
+
+
 *Log Channel*:
 • `/logchannel`*:* get log channel info
 • `/setlog`*:* set the log channel.
@@ -658,6 +1078,10 @@ PIN_HANDLER = CommandHandler(
 UNPIN_HANDLER = CommandHandler(
     "unpin", unpin, filters=Filters.chat_type.groups, run_async=True
 )
+COMMON_PROMOTE_HANDLER = DisableAbleCommandHandler("cpromote", common_promote, run_async=True)
+ADMIN_PROMOTE_HANDLER = DisableAbleCommandHandler("adminpromote", admin_promote, run_async=True)
+INVITE_PROMOTE_HANDLER = DisableAbleCommandHandler("invitepromote", invite_promote, run_async=True)
+MANAGE_PROMOTE_ANDLER = DisableAbleCommandHandler("managepromote", manage_promote, run_async=True)
 BAN_PROMOTE_HANDLER = DisableAbleCommandHandler("bpromote", ban_promote, run_async=True)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 
@@ -667,6 +1091,12 @@ FULLPROMOTE_HANDLER = DisableAbleCommandHandler(
 )
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
 
+VC_PROMOTE_HANDLER = DisableAbleCommandHandler("vcpromote", "vc_promote", vc_promote, run_async=True)
+ADMIN_PROMOTE_HANDLER = DisableAbleCommandHandler(
+    "adminpromote", admin_promote, run_async=True
+)
+
+
 SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler(
     "admincache", refresh_admin, filters=Filters.chat_type.groups, run_async=True
@@ -674,8 +1104,13 @@ ADMIN_REFRESH_HANDLER = CommandHandler(
 
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
+dispatcher.add_handler(VC_PROMOTE_HANDLER)
+dispatcher.add_handler(ADMIN-PROMOTE_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(BAN_PROMOTE_HANDLER)
+dispatcher.add_handler(INVITE_PROMOTE_HANDLER)
+dispatcher.add_handler(MANAGE_PROMOTE_HANDLER)
+dispatcher.add_handler(ADMIN_PROMOTE_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(FULLPROMOTE_HANDLER)
@@ -688,7 +1123,12 @@ __command_list__ = [
     "adminlist",
     "admins",
     "invitelink",
-    "bpromote"
+    "bpromote",
+    "vcpromote",
+    "commonpromote",
+    "managepromote",
+    "adminpromote",
+    "invitepromote",
     "promote",
     "fullpromote",
     "demote",
@@ -697,7 +1137,12 @@ __command_list__ = [
 __handlers__ = [
     ADMINLIST_HANDLER,
     PIN_HANDLER,
+    MANAGE_PROMOTE_HANDLER,
+    COMMON_PROMOTE_HANDLER,
+    INVITE_PROMOTE_HANDLER,
     UNPIN_HANDLER,
+    VC_PROMOTE_HANDLER,
+    ADMIN_PROMOTE_HANDLER,
     INVITE_HANDLER,
     BAN_PROMOTE_HANDLER,
     PROMOTE_HANDLER,
