@@ -260,7 +260,10 @@ __help__ = """
  `/cash 1 USD INR`  
       _OR_
  `/cash 1 usd inr`
- Output: `1.0 USD = 75.505 INR`
+ Output: `1.0 USD = 75.505 INR` 
+ 
+*Live Cricket Score*
+ ❍ /cs*:* Latest live scores from cricinfo
 """
 
 ECHO_HANDLER = DisableAbleCommandHandler(
