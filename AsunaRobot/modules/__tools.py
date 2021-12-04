@@ -20,6 +20,9 @@ _Both Parties:_
  ❍ /wttr <city>*:* Advanced weather module, usage same as /weather
  ❍ /wttr moon*:* Get the current status of moon
 
+*Mention:-* 
+- /tagall : Tag everyone in a chat
+
 *Converts*
  ❍ /encrypt*:* Encrypts The Given Text
  ❍ /decrypt*:* Decrypts Previously Ecrypted Text
