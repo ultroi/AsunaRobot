@@ -1105,7 +1105,7 @@ ADMIN_REFRESH_HANDLER = CommandHandler(
 dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(VC_PROMOTE_HANDLER)
-dispatcher.add_handler(ADMIN-PROMOTE_HANDLER)
+dispatcher.add_handler(ADMIN_PROMOTE_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(BAN_PROMOTE_HANDLER)
 dispatcher.add_handler(INVITE_PROMOTE_HANDLER)
