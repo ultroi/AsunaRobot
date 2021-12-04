@@ -26,6 +26,9 @@ _Both Parties:_
  ❍ /zip*:* reply to a telegram file to compress it in .zip format
  ❍ /unzip*:* reply to a telegram file to decompress it from the .zip format 
  
+ *Link To File:*
+ 
+ 
 *TTS/STT*
  I can convert text to voice and voice to text.
  ❍ /tts <`lang code`>: Reply to any message to get text to speech output 
