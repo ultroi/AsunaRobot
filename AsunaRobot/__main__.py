@@ -76,11 +76,11 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 ────「 [Pikachu](https://telegra.ph/file/da8c9c0c573d0cd2a5913.jpg) 」────
-*Hola! {},*
+*Hola!*
 *I am an Anime themed advance group management bot with a lot of Features.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-• *Uptime:*{}
-• {}*users, across*{}*chats.*
+• *Owner* - [RYUK](https://t.me/Weeb_lover)
+• *Connected* - [SCANNER](https://t.me/Oraizon_Scanner)
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ Try The Help Buttons Below To Know My Abilities ××   
 """
