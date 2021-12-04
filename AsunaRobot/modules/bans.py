@@ -4,7 +4,8 @@ from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
-from telegram import TelegramError
+from telegram import TelegramError 
+from typing import Optional, List
 from AsunaRobot import (
     DEV_USERS,
     LOGGER,
@@ -14,7 +15,8 @@ from AsunaRobot import (
     TIGERS,
     WOLVES,
     dispatcher,
-)
+) 
+import AsunaRobot.modules.sql.users_sql as sql
 from AsunaRobot.modules.disable import DisableAbleCommandHandler
 from AsunaRobot.modules.helper_funcs.chat_status import (
     bot_admin,
