@@ -272,7 +272,13 @@ __help__ = """
 *Admins only:*
  • `/reports <on/off>`*:* change report setting, or view current status.
    • If done in pm, toggles your status.
-   • If in group, toggles that groups's status.
+   • If in group, toggles that groups's status. 
+
+<== *Purge* ==> 
+*Admin only:* 
+ - /del: deletes the message you replied to 
+ - /purge: deletes all messages between this and the replied to message. 
+ - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 """
 
 SETTING_HANDLER = CommandHandler("reports", report_setting, run_async=True)
@@ -291,7 +297,7 @@ dispatcher.add_handler(SETTING_HANDLER)
 dispatcher.add_handler(REPORT_HANDLER, REPORT_GROUP)
 dispatcher.add_handler(ADMIN_REPORT_HANDLER, REPORT_GROUP)
 
-__mod_name__ = "Reporting"
+__mod_name__ = "Report/Purge"
 __handlers__ = [
     (REPORT_HANDLER, REPORT_GROUP),
     (ADMIN_REPORT_HANDLER, REPORT_GROUP),
