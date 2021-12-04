@@ -1081,7 +1081,7 @@ UNPIN_HANDLER = CommandHandler(
 COMMON_PROMOTE_HANDLER = DisableAbleCommandHandler("cpromote", common_promote, run_async=True)
 ADMIN_PROMOTE_HANDLER = DisableAbleCommandHandler("adminpromote", admin_promote, run_async=True)
 INVITE_PROMOTE_HANDLER = DisableAbleCommandHandler("invitepromote", invite_promote, run_async=True)
-MANAGE_PROMOTE_ANDLER = DisableAbleCommandHandler("managepromote", manage_promote, run_async=True)
+MANAGE_PROMOTE_HANDLER = DisableAbleCommandHandler("managepromote", manage_promote, run_async=True)
 BAN_PROMOTE_HANDLER = DisableAbleCommandHandler("bpromote", ban_promote, run_async=True)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 
