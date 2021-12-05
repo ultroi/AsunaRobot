@@ -74,10 +74,8 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     else:
         pairs += [
             [
-                EqInlineKeyboardButton("Go Back", callback_data="asuna_back"),
-                EqInlineKeyboardButton(
-                    "Source", url="https://github.com/ultroi/Pikachu-old-"
-                ),
+                EqInlineKeyboardButton("Home", callback_data="asuna_back"),
+                 
             ]
         ]
 
