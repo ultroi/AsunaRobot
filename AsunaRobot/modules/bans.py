@@ -117,7 +117,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         log += "\n<b>Reason:</b> {}".format(reason)
 
     try:
-        cat.kick_member(user_id)
+        chat.kick_member(user_id)
 
         if silent:
             if message.reply_to_message:
