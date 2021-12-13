@@ -119,7 +119,7 @@ buttons = [
         InlineKeyboardButton(
             text="🎉 Updates", url="https://telegram.dog/PikachuUpdate"),
         InlineKeyboardButton(
-            text="📮 Logs", url="https://telegram.dog/@PiKa_HaMMer_LoGs"),
+            text="📮 Logs", url="https://telegram.dog/PiKa_HaMMer_LoGs"),
               
     ],
     [                    
