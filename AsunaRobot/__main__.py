@@ -95,11 +95,11 @@ PM_START_TEXT = """
 ────「 [{}](https://telegra.ph/file/438ea17e93f284ae9fe9d.jpg) 」────
 *Pika-Pika! {},*
 *I am an Anime themed advance group management bot with a lot of awesome Features, Pika-Pika*
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖➖
 • *Uptime:* `{}`
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖➖
 • `{}` *users, across* `{}` *chats.*
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖➖
 *Try The Help Buttons Below To Know My Abilities And Attacks* ××
 """
 
