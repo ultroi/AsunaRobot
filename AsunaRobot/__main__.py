@@ -87,7 +87,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-HELP_IMG = "https://telegra.ph/file/51b3dbe9f463e12acbbdd.jpg"
+HELP_IMG = "https://telegra.ph/file/566d2ce772ba4341802c0.mp4"
 HELP_MSG = "Click the button below to get help manu in your pm."
 START_MSG = "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>"
     
