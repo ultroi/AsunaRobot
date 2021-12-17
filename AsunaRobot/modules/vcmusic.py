@@ -17,7 +17,7 @@ __help__ = """
 • Song Playing 🎶
   `/play <songname>`: *Play song using youtube music*
   `/play <yt url>` : *Play the given yt url*
-  `/splay`: *Play song via jio saavn*
+  `/mplay` - play a song.
   
 • *Playback ⏯
   /player: Open Settings menu of player
