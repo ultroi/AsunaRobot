@@ -1,4 +1,4 @@
- import AsunaRobot.modules.sql.blacklistusers_sql as sql
+import AsunaRobot.modules.sql.blacklistusers_sql as sql
 from AsunaRobot import ALLOW_EXCL
 from AsunaRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
 
