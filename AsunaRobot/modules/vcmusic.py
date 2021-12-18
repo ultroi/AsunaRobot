@@ -19,8 +19,8 @@ __help__ = """
 » /resume - resume the stream
 » /skip - switch to next stream
 » /stop - stop the streaming
-» /vmute - mute the userbot on voice chat
-» /vunmute - unmute the userbot on voice chat
+» /vcmute - mute the userbot on voice chat
+» /vcunmute - unmute the userbot on voice chat
 » /volume 1-200 - adjust the volume of music (userbot must be admin)
 » /reload - reload bot and refresh the admin data
 » /userbotjoin - invite the userbot to join group
