@@ -678,7 +678,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}",
-                "[Hinata is alive now!](https://telegra.ph/file/f0bc7f1690e7d688a189e.jpg)",
+                "System Updated",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
