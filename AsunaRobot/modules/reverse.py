@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from telegram import InputMediaPhoto, TelegramError
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
-from Asuna import pbot as Asuna
+from AsunaRobot import pbot as Asuna
 from AsunaRobot import dispatcher
 from AsunaRobot.modules.disable import DisableAbleCommandHandler
 
