@@ -5,7 +5,8 @@ import urllib
 import urllib.request
 import urllib.parse
 from urllib.error import URLError, HTTPError
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup 
+from pyrogram import filters
 
 from telegram import InputMediaPhoto, TelegramError
 from telegram import Update
