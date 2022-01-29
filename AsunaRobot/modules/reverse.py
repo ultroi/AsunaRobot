@@ -20,6 +20,7 @@ opener.addheaders = [('User-agent', useragent)]
 
 
 @run_async
+@Asuna.on_message(filters.command("grs"))
 def reverse(update: Update, context:CallbackContext):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
