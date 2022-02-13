@@ -4,9 +4,9 @@ from PIL import Image, ImageFont, ImageDraw
 from AsunaRobot.events import register
 from AsunaRobot import LOGGER, TEMP_DOWNLOAD_DIRECTORY, telethn as bot
 
-
+@run_async
 @register(pattern="^/mmf ?(.*)")
-async def handler(event):
+def handler(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
@@ -30,8 +30,8 @@ async def handler(event):
 # Taken from https://github.com/UsergeTeam/Userge-Plugins/blob/master/plugins/memify.py#L64
 # Maybe replyed to suit the needs of this module
 
-
-async def drawText(image_path, text):
+@run_async
+def drawText(image_path, text):
     img = Image.open(image_path)
     os.remove(image_path)
     shadowcolor = "black"
