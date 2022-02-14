@@ -93,3 +93,11 @@ async def quotess(qotli):
                                               [msg.id, response.id])
     except TimeoutError:
         await qotli.edit()
+        
+ SG_HANDLER = CommandHandler("sg", sg, run_async=True
+)
+dispatcher.add_handler(SG_HANDLER)
+
+__handlers__ = [
+    SG_HANDLER,
+]
