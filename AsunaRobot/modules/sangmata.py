@@ -59,42 +59,9 @@ async def lastname(steal):
 
 
 
-@register(pattern="^/quotly ?(.*)")
-async def quotess(qotli):
-    if qotli.fwd_from:
-        return
-    if not qotli.reply_to_msg_id:
-        return await qotli.reply("```Mohon Balas Ke Pesan```")
-    reply_message = await qotli.get_reply_message()
-    if not reply_message.text:
-        return await qotli.reply("```Mohon Balas Ke Pesan```")
-    chat = "@QuotLyBot"
-    if reply_message.sender.bot:
-        return await qotli.reply("```Mohon Balas Ke Pesan```")
-    await qotli.reply("```Sedang Memproses Sticker, Mohon Menunggu```")
-    try:
-        async with ubot.conversation(chat) as conv:
-            try:
-                response = await conv.get_response()
-                msg = await ubot.forward_messages(chat, reply_message)
-                response = await response
-                """ - don't spam notif - """
-                await ubot.send_read_acknowledge(conv.chat_id)
-            except YouBlockedUserError:
-                return await qotli.edit("```Harap Jangan Blockir @QuotLyBot Buka Blokir Lalu Coba Lagi```")
-            if response.text.startswith("Hi!"):
-                await qotli.edit("```Mohon Menonaktifkan Pengaturan Privasi Forward Anda```")
-            else:
-                await qotli.delete()
-                await tbot.send_message(qotli.chat_id, response.message)
-                await tbot.send_read_acknowledge(qotli.chat_id)
-                """ - cleanup chat after completed - """
-                await ubot.delete_messages(conv.chat_id,
-                                              [msg.id, response.id])
-    except TimeoutError:
-        await qotli.edit()
+
         
- SG_HANDLER = CommandHandler("sg", sg, run_async=True
+SG_HANDLER = CommandHandler("sg", sg, run_async=True
 )
 dispatcher.add_handler(SG_HANDLER)
 
