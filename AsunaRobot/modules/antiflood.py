@@ -26,7 +26,7 @@ from AsunaRobot.modules.helper_funcs.string_handling import extract_time
 from AsunaRobot.modules.connection import connected
 from AsunaRobot.modules.helper_funcs.alternate import send_message
 from AsunaRobot.modules.sql.approve_sql import is_approved
-from AsunaRobot.modules.language import gs
+# from AsunaRobot.modules.language import gs
 
 FLOOD_GROUP = 3
 
