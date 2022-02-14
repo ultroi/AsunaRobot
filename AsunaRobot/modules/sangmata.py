@@ -67,10 +67,10 @@ def lastname(steal):
 
 
         
-SANGMATA_HANDLER = CommandHandler("sg", sangmata, run_async=True
+# SANGMATA_HANDLER = CommandHandler("sg", sangmata, run_async=True
 )
-dispatcher.add_handler(SG_HANDLER)
+# dispatcher.add_handler(SG_HANDLER)
 
-__handlers__ = [
-    SG_HANDLER,
-]
+# __handlers__ = [
+#    SG_HANDLER,
+
