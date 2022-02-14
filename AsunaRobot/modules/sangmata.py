@@ -3,7 +3,13 @@ from AsunaRobot import telethn as tbot
 from AsunaRobot.events import register
 from AsunaRobot import ubot2 as ubot
 from asyncio.exceptions import TimeoutError
-
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+)
 
 @register(pattern="^/sg ?(.*)")
 async def lastname(steal):
