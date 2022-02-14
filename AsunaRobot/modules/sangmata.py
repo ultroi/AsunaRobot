@@ -67,7 +67,7 @@ async def lastname(steal):
 
 
         
-SG_HANDLER = CommandHandler("sg", sg, run_async=True
+SANGMATA_HANDLER = CommandHandler("sg", sangmata, run_async=True
 )
 dispatcher.add_handler(SG_HANDLER)
 
