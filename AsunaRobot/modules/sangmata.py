@@ -10,9 +10,9 @@ from telegram.ext import (
     Filters,
     MessageHandler,
 )
-
+@run_async
 @register(pattern="^/sg ?(.*)")
-async def lastname(steal):
+def lastname(steal):
     steal.pattern_match.group(1)
     puki = await steal.reply("```Retrieving Such User Information..```")
     if steal.fwd_from:
