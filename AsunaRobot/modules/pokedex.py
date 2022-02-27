@@ -6,7 +6,7 @@ from AsunaRobot import pbot as asuna
 
 
 @asuna.on_message(filters.command("pokedex"))
-async def PokeDex(_, message):
+def PokeDex(_, message):
     if len(message.command) != 2:
         await message.reply_text("/pokedex <`Pokemon Name`>")
         return
@@ -43,3 +43,7 @@ async def PokeDex(_, message):
                 print(str(e))
                 pass
     await message.reply_photo(photo=poke_img, caption=caption)
+
+POKEDEX_HANDLER = DisableAbleCommandHandler(
+    "pokedex", pokedex, pass_args=True, admin_ok=True, run_async=True 
+)
