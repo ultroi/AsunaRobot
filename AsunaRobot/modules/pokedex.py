@@ -1,6 +1,7 @@
 # Pokedex Module Credits Pranav Ajay 🐰Github = Red-Aura 🐹 Telegram= @madepranav
 
-import aiohttp
+import aiohttp 
+from telegram.ext import CallbackContext, run_async
 from pyrogram import filters
 from AsunaRobot import pbot as asuna
 from AsunaRobot.modules.disable import DisableAbleCommandHandler
