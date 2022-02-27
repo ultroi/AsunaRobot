@@ -20,7 +20,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebK
 opener.addheaders = [('User-agent', useragent)]
 
 
-@run_async
+
 @Asuna.on_message(filters.command("grs"))
 def reverse(update: Update, context:CallbackContext):
     if os.path.isfile("okgoogle.png"):
@@ -184,7 +184,7 @@ def scam(imgspage, lim):
 __mod_name__ = "Reverse"
 
 REVERSE_HANDLER = DisableAbleCommandHandler(
-    ("reverse", "grs"), reverse, pass_args=True, admin_ok=True
+    ("reverse", "grs"), reverse, pass_args=True, admin_ok=True, run_async=True
 )
 
 dispatcher.add_handler(REVERSE_HANDLER)
