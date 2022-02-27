@@ -3,7 +3,7 @@
 import aiohttp
 from pyrogram import filters
 from AsunaRobot import pbot as asuna
-
+from AsunaRobot.modules.disable import DisableAbleCommandHandler
 
 @asuna.on_message(filters.command("pokedex"))
 def PokeDex(_, message):
