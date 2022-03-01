@@ -29,17 +29,17 @@ from AsunaRobot import (
     sw,
     dispatcher,
 )
-from SiestaRobot.modules.helper_funcs.chat_status import (
+from AsunaRobot.modules.helper_funcs.chat_status import (
     is_user_admin,
     support_plus,
     user_admin,
 )
-from SiestaRobot.modules.helper_funcs.extraction import (
+from AsunaRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SiestaRobot.modules.helper_funcs.misc import send_to_list
-from SiestaRobot.modules.language import gs
+from AsunaRobot.modules.helper_funcs.misc import send_to_list
+from AsunaRobot.modules.language import gs
 
 GBAN_ENFORCE_GROUP = 6
 
