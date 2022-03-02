@@ -95,8 +95,8 @@ def is_gif(file):
         return False
     return DocumentAttributeAnimated() in getattr(file, "document", file).attributes 
     
- WHATANIME_HANDLER = DisableAbleCommandHandler(
-    ["whatanime"], reverse, pass_args=True, admin_ok=True, run_async=True
+WHATANIME_HANDLER = DisableAbleCommandHandler(
+["whatanime"], reverse, pass_args=True, admin_ok=True, run_async=True
 )
 
 dispatcher.add_handler(WHATANIME_HANDLER)
