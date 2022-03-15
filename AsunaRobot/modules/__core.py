@@ -20,7 +20,7 @@ DELETE_TIMEOUT = 5
 # Send_Module
 
 @Asuna(pattern="^/send ?(.*)")
-async def send(event):
+def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
@@ -42,7 +42,7 @@ async def send(event):
 # Install_Module
 
 @Asuna(pattern="^/install")
-async def install(event):
+def install(event):
     if event.fwd_from:
         return
     if event.sender_id == OWNER_ID:
@@ -77,3 +77,15 @@ async def install(event):
             os.remove(downloaded_file_name)
     await asyncio.sleep(3)
     await event.delete()
+
+
+SEND_HANDLER = DisableAbleCommandHandler(
+    "send", send, pass_args=True, admin_ok=True, run_async=True
+)
+
+INSTALL_HANDLER = DisableAbleCommandHandler(
+    "install", install, pass_args=True, admin_ok=True, run_async=True
+)
+
+dispatcher.add_handler(SEND_HANDLER)
+dispatcher.add_handler(INSTALL_HANDLER)
