@@ -239,6 +239,7 @@ except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
     sys.exit(1)
 
+session_name = TOKEN.split(":")[0]
 pgram = Client(
     session_name,
     api_id=API_ID,
