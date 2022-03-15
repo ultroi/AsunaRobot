@@ -115,4 +115,4 @@ def zombies(event):
     ["zombies", "deletedac"], zombies, pass_args=True, admin_ok=True, run_async=True
 )
 
-dispatcher.add_handler(REVERSE_HANDLER)
+dispatcher.add_handler(ZOMBIES_HANDLER)
