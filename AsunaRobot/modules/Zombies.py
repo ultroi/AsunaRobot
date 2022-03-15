@@ -49,7 +49,7 @@ async def is_administrator(user_id: int, message):
 
 
 @telethn.on(events.NewMessage(pattern=f"^[!/]zombies ?(.*)"))
-async def zombies(event):
+def zombies(event):
     """For .zombies command, list all the zombies in a chat."""
 
     con = event.pattern_match.group(1).lower()
@@ -110,3 +110,9 @@ async def zombies(event):
         \n`{del_a}` Zombie Admin Accounts Are Not Removed!"
 
     await cleaning_zombies.edit(del_status)
+    
+    ZOMBIES_HANDLER = DisableAbleCommandHandler(
+    ["zombies", "deletedac"], zombies, pass_args=True, admin_ok=True, run_async=True
+)
+
+dispatcher.add_handler(REVERSE_HANDLER)
